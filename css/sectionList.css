@@ -1,0 +1,41 @@
+.sectionList {
+    list-style: none;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.listItem {
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #EEEDEF;
+    padding: 2px;
+
+}
+
+.listItem__check {
+    flex-basis: 25px;
+    height: 25px;
+    border: none;
+    background-color: #59ad00;
+    color: white;
+    text-align: center;
+    margin: 5px 10px;
+}
+.listItem__delete {
+    flex-basis: 25px;
+    height: 25px;
+    border: none;
+    background-color: crimson;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin: 5px 10px;
+
+}
+
+.listItem__paragraph {
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+}
