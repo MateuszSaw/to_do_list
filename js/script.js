@@ -14,7 +14,13 @@
   const deleteTask = (index) => {
     tasks.splice(index, 1);
     render();
-  }
+  };
+
+  const toggleTaskDone = (index)=> {
+    tasks[index].done = !tasks[index].done;
+    render();
+
+  };
 
   const render = () => {
     let htmlString = "";
@@ -37,6 +43,15 @@
 
       deleteButton.addEventListener("click", () => {
         deleteTask(index);
+      });
+    });
+
+    const toggleDoneButtons = document.querySelectorAll(".listItem__check");
+
+    toggleDoneButtons.forEach((toggleDoneButton, index) => {
+
+      toggleDoneButton.addEventListener("click", () => {
+        toggleTaskDone(index);
       });
     });
   };
