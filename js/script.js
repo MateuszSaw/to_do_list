@@ -4,6 +4,18 @@
     done: false,
   }];
 
+  const addNewTask = (newTaskContent) => {
+    tasks.push({
+      content: newTaskContent,
+    });
+    render();
+  };
+
+  const deleteTask = (index) => {
+    tasks.splice(index, 1);
+    render();
+  }
+
   const render = () => {
     let htmlString = "";
 
@@ -19,15 +31,14 @@
 
     document.querySelector(".js-tasksList").innerHTML = htmlString;
 
+    const deleteButtons = document.querySelectorAll(".listItem__delete");
 
-  };
+    deleteButtons.forEach((deleteButton, index) => {
 
-  const addNewTask = (newTaskContent) => {
-    tasks.push({
-      content: newTaskContent,
+      deleteButton.addEventListener("click", () => {
+        deleteTask(index);
+      });
     });
-
-    render();
   };
 
   const onFormSubmit = (event) => {
