@@ -1,7 +1,5 @@
 .main {
-    background: #EEEDEF;
-    height: 100vh;
-    padding: 25px 50px;
-    max-width: 1350px;
-    margin: auto;
+    max-width: 1000px;
+    padding: 30px;
+    margin: 0 auto;
 }

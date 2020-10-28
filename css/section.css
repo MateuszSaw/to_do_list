@@ -1,33 +1,16 @@
 .section {
     background: white;
     margin-bottom: 10px;
+    box-shadow: 0 0 5px #EEEDEF;
 }
 
 .section__header{
-    margin: auto;
+    margin: 0;
     font-size: 20px;
     border-bottom: 1px solid #EEEDEF;
     padding: 20px;
 }
 
-.form {
+.section__body{
     padding: 20px;
-    border-bottom: 1px solid #EEEDEF;
-    display: flex;
-    align-items: center;
-}
-
-.form__input {
-    flex-grow: 1;
-    margin-right: 15px;
-    padding: 10px;
-    border: 1px solid  #EEEDEF;
-}
-
-.button {
-    background: teal;
-    color: #EEEDEF;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
 }

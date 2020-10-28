@@ -1,8 +1,5 @@
 {
-  const tasks = [{
-    content: "odrobić zadanie z YouCode",
-    done: false,
-  }];
+  const tasks = [];
 
   const addNewTask = (newTaskContent) => {
     tasks.push({
@@ -16,13 +13,13 @@
     render();
   };
 
-  const toggleTaskDone = (index)=> {
+  const toggleTaskDone = (index) => {
     tasks[index].done = !tasks[index].done;
     render();
   };
 
   const bindEvents = () => {
-    const deleteButtons = document.querySelectorAll(".listItem__delete");
+    const deleteButtons = document.querySelectorAll(".taskList__button--delete");
 
     deleteButtons.forEach((deleteButton, index) => {
 
@@ -31,7 +28,7 @@
       });
     });
 
-    const toggleDoneButtons = document.querySelectorAll(".listItem__check");
+    const toggleDoneButtons = document.querySelectorAll(".taskList__button--done");
 
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
 
@@ -45,10 +42,18 @@
 
     for (const task of tasks) {
       htmlString += `
-      <li class="listItem">
-        <button class="listItem__check">${task.done ? "✔" :""}</button>
-        <p class="listItem__paragraph">${task.content}</p>
-        <button class="listItem__delete">🗑</button>
+      <li
+        class="listItem"
+      >
+        <button class="taskList__button taskList__button--done">
+          ${task.done ? "✔" :""}
+        </button>
+        <p class="listItem__paragraph ${task.done ? " tasks__content--done" :""}">
+          ${task.content}
+        </p>
+        <button class="taskList__button taskList__button--delete">
+          🗑
+        </button>
       </li>
       `;
     }
@@ -61,13 +66,14 @@
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const newTaskContent = document.querySelector(".js-newTask").value.trim();
+    const newTaskElement = document.querySelector(".js-newTask");
+    const newTaskContent = newTaskElement.value.trim();
 
-    if (newTaskContent === "") {
-      return;
+    if (newTaskContent !== "") {
+      addNewTask(newTaskContent);
+      newTaskElement.value = "";
     }
-
-    addNewTask(newTaskContent);
+    newTaskElement.focus();
   };
 
   const init = () => {
