@@ -21,11 +21,14 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .form__button:hover {
     background: hsl(180, 100%, 25%);
     border: none;
+    transform: scale(1.1);
+
 }
 
 .form__button:active {
